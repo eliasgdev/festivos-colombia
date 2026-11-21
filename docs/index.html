@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'none'; base-uri 'none'; form-action 'none'; object-src 'none'" />
+  <meta name="referrer" content="no-referrer" />
+  <title>Festivos de Colombia y calculadora de días hábiles</title>
+  <meta name="description" content="Todos los festivos de Colombia de cualquier año, con los traslados de la Ley Emiliani, y una calculadora de días hábiles. También como librería de JavaScript sin dependencias." />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0a0a0b" media="(prefers-color-scheme: dark)" />
+  <meta property="og:title" content="Festivos de Colombia" />
+  <meta property="og:description" content="Festivos de cualquier año y calculadora de días hábiles." />
+  <link rel="icon" href="icono.svg" type="image/svg+xml" />
+  <link rel="preload" href="fonts/inter.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="styles.css" />
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <header class="barra">
+    <a class="marca" href="./"><img src="icono.svg" alt="" width="28" height="28" />festivos-colombia</a>
+    <a class="enlace tenue" href="https://github.com/eliasgdev/festivos-colombia" rel="noopener">GitHub</a>
+  </header>
+
+  <main>
+    <section class="portada">
+      <div class="titulo-anio">
+        <h1>Festivos de Colombia <span id="anio"></span></h1>
+        <div class="flechas">
+          <button type="button" class="flecha" id="anterior" aria-label="Año anterior">‹</button>
+          <button type="button" class="flecha" id="siguiente" aria-label="Año siguiente">›</button>
+        </div>
+      </div>
+      <p class="proximo" id="proximo"></p>
+    </section>
+
+    <section class="seccion" aria-label="Lista de festivos">
+      <ol class="festivos" id="lista"></ol>
+      <p class="nota tenue">Los festivos marcados con «se corrió del…» se trasladan al lunes siguiente por la Ley 51 de 1983 (Ley Emiliani). Jueves y Viernes Santo no se trasladan.</p>
+    </section>
+
+    <section class="seccion" aria-labelledby="tituloCalc">
+      <h2 id="tituloCalc">Calculadora de días hábiles</h2>
+      <form class="frase" id="formSumar">
+        <label for="desdeSumar">Desde el</label>
+        <input type="date" id="desdeSumar" required />
+        <label for="n">sumar</label>
+        <input type="number" id="n" value="10" min="-3650" max="3650" step="1" inputmode="numeric" required />
+        <span>días hábiles</span>
+      </form>
+      <p class="resultado" id="resSumar" aria-live="polite"></p>
+
+      <form class="frase" id="formEntre">
+        <label for="desdeEntre">Entre el</label>
+        <input type="date" id="desdeEntre" required />
+        <label for="hastaEntre">y el</label>
+        <input type="date" id="hastaEntre" required />
+      </form>
+      <p class="resultado" id="resEntre" aria-live="polite"></p>
+
+      <label class="opcion"><input type="checkbox" id="sabados" /> Contar los sábados como hábiles</label>
+    </section>
+
+    <section class="seccion" aria-labelledby="tituloCodigo">
+      <h2 id="tituloCodigo">Úsalo en tu código</h2>
+      <p class="tenue">Librería de JavaScript sin dependencias, con tipos para TypeScript. Funciona en Node 18+ y en el navegador.</p>
+      <pre><code>npm install github:eliasgdev/festivos-colombia</code></pre>
+      <pre><code>import { festivos, esFestivo, sumarDiasHabiles } from 'festivos-colombia';
+
+esFestivo('2026-11-16');               // true: Independencia de Cartagena
+sumarDiasHabiles('2026-11-13', 1);     // '2026-11-17'
+festivos(2027).length;                 // 18</code></pre>
+    </section>
+  </main>
+
+  <footer class="pie">MIT · <a href="https://github.com/eliasgdev/festivos-colombia" rel="noopener">Código y documentación</a></footer>
+</body>
+</html>

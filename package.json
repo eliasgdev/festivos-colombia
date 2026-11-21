@@ -1,0 +1,41 @@
+{
+  "name": "festivos-colombia",
+  "version": "1.0.0",
+  "description": "Festivos de Colombia (Ley Emiliani y Pascua) y cálculo de días hábiles. Sin dependencias.",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./src/index.d.ts",
+      "default": "./src/index.js"
+    }
+  },
+  "types": "./src/index.d.ts",
+  "bin": {
+    "festivos-colombia": "bin/festivos.js"
+  },
+  "files": [
+    "src",
+    "bin"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "start": "npm run sitio && python3 -m http.server -d _sitio 8080",
+    "sitio": "rm -rf _sitio && mkdir _sitio && cp -r docs/. _sitio/ && cp -r src _sitio/"
+  },
+  "keywords": [
+    "festivos",
+    "colombia",
+    "dias-habiles",
+    "holidays",
+    "ley-emiliani",
+    "business-days"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eliasgdev/festivos-colombia.git"
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,72 @@
+@font-face { font-family: "Inter"; src: url("fonts/inter.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }
+
+:root {
+  --fondo: #fff; --texto: #111113; --tenue: #6b6f76; --linea: #e6e7ea; --suave: #f4f5f7;
+  --acento: #2563eb; --rojo: #dc2626; --ancho: 760px;
+  --fuente: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --fondo: #0a0a0b; --texto: #f2f2f3; --tenue: #9a9ca3; --linea: #26272b; --suave: #161619; --acento: #60a5fa; --rojo: #f87171; color-scheme: dark; }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; font-family: var(--fuente); background: var(--fondo); color: var(--texto); line-height: 1.5; }
+h1, h2, p { margin: 0; }
+a { color: inherit; }
+button, input { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--acento); outline-offset: 2px; }
+.tenue { color: var(--tenue); }
+.enlace { text-underline-offset: 3px; font-weight: 500; }
+
+.barra { display: flex; align-items: center; justify-content: space-between; max-width: var(--ancho); margin: 0 auto; padding: 20px 24px; }
+.marca { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; text-decoration: none; }
+main { max-width: var(--ancho); margin: 0 auto; padding: 0 24px 48px; }
+
+.portada { padding: 32px 0 24px; }
+.titulo-anio { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; }
+h1 { font-size: clamp(2rem, 6vw, 3.25rem); line-height: 1.05; letter-spacing: -0.03em; font-weight: 800; }
+#anio { color: var(--tenue); font-variant-numeric: tabular-nums; }
+.flechas { display: flex; gap: 8px; padding-bottom: 6px; }
+.flecha { width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--linea); background: var(--fondo); cursor: pointer; font-size: 1.25rem; line-height: 1; }
+.flecha:hover:not(:disabled) { border-color: var(--texto); }
+.flecha:disabled { opacity: 0.4; cursor: default; }
+.proximo { margin-top: 16px; font-size: 1.125rem; }
+.proximo strong { font-weight: 600; }
+
+.seccion { padding: 32px 0; border-top: 1px solid var(--linea); }
+.seccion h2 { font-size: 1.375rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 20px; }
+
+.festivos { list-style: none; margin: 0; padding: 0; }
+.festivo { display: grid; grid-template-columns: 3.5rem minmax(0, 1fr); gap: 16px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--linea); }
+.festivo:first-child { padding-top: 0; }
+.festivo-dia { display: grid; justify-items: center; line-height: 1.05; }
+.festivo-num { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+.festivo-mes { font-size: 0.8rem; color: var(--tenue); text-transform: lowercase; }
+.festivo-texto { display: grid; }
+.festivo-texto strong { font-weight: 600; }
+.festivo-texto .tenue { font-size: 0.92rem; }
+.festivo.pasado .festivo-num, .festivo.pasado strong { color: var(--tenue); font-weight: 500; }
+.proximo-item .festivo-num { color: var(--acento); }
+.nota { font-size: 0.88rem; margin-top: 16px; max-width: 62ch; }
+
+.frase { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 12px; font-size: 1.15rem; font-weight: 500; }
+.frase input { border: 0; border-bottom: 2px solid var(--acento); background: transparent; padding: 2px 4px; font-weight: 600; color: var(--acento); }
+.frase input[type="number"] { width: 5.5rem; text-align: right; font-variant-numeric: tabular-nums; }
+.frase input:focus { outline: none; border-bottom-color: var(--texto); }
+.resultado { font-size: 1.5rem; letter-spacing: -0.02em; margin: 10px 0 32px; min-height: 2.25rem; }
+.resultado strong { font-weight: 700; }
+.resultado .tenue { font-size: 1rem; letter-spacing: 0; }
+.resultado .error { color: var(--rojo); font-size: 1rem; }
+.opcion { display: inline-flex; align-items: center; gap: 8px; color: var(--tenue); cursor: pointer; }
+.opcion input { width: 18px; height: 18px; accent-color: var(--acento); }
+
+pre { margin: 16px 0 0; padding: 16px 0; border-top: 1px solid var(--linea); overflow-x: auto; font-size: 0.9rem; line-height: 1.6; }
+code { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; }
+
+.pie { max-width: var(--ancho); margin: 0 auto; padding: 24px; border-top: 1px solid var(--linea); color: var(--tenue); font-size: 0.85rem; }
+
+@media (max-width: 560px) {
+  .barra, main, .pie { padding-left: 16px; padding-right: 16px; }
+  .frase { font-size: 1.05rem; }
+}
