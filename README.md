@@ -114,3 +114,9 @@ Lo saqué de proyectos privados donde hacía falta calcular plazos en días háb
 ## Licencia
 
 MIT. La fuente Inter de la página usa la SIL Open Font License.
+
+---
+
+<a href="https://avirexis.com/?utm_source=github&utm_medium=readme&utm_campaign=festivos-colombia"><picture><source media="(prefers-color-scheme: dark)" srcset="https://avirexis.com/avx-logo-nav-white.png"><img src="https://avirexis.com/avx-logo-nav.png" alt="Avirexis" height="22"></picture></a>
+
+Hecho por [Avirexis](https://avirexis.com/?utm_source=github&utm_medium=readme&utm_campaign=festivos-colombia), software de gestión para negocios hecho en Colombia.
